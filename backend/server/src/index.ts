@@ -13,6 +13,7 @@ class server{
         this.config();
         this.routes();
     }
+
     //Método para configurar el servidor
     config(): void{
         //Se modifica la propiedad del objeto aplicación editando su puerto o usando uno otorgado por un servicio
@@ -22,11 +23,13 @@ class server{
         this.app.use(express.json());              //Poder aceptar el formato JSON del frontend 
         this.app.use(express.urlencoded({extended: false}));    //Enviar desde un formulario HTML esto es opcional
     }
+
     //Método para las rutas
     routes(): void{
         this.app.use('/', indexRoutes);
         this.app.use('/usuarios',usuarioRoutes);
     }
+    
     //Método para iniciar el servidor
     start(): void{
         this.app.listen(this.app.get('port'), ()=>{ console.log('servidor en puerto ', this.app.get('port')) });                      

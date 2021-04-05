@@ -8,7 +8,12 @@ class usuarioRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', usuariosController_1.verUsuarios);
+        this.router
+            .get('/', usuariosController_1.verUsuarios)
+            .get('/:carnet', usuariosController_1.verUsuario)
+            .post('/', usuariosController_1.nuevoUsuario)
+            .delete('/:carnet', usuariosController_1.eliminarUsuario)
+            .put('/:carnet', usuariosController_1.actualizarUsuario);
     }
 }
 const UsuarioRoutes = new usuarioRoutes();
