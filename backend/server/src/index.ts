@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import express, {Application} from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -40,6 +39,3 @@ class server{
 //Iniciar el objeto servidor
 const servidor = new server();
 servidor.start();
-=======
-console.log('En proceso...') 
->>>>>>> Stashed changes
