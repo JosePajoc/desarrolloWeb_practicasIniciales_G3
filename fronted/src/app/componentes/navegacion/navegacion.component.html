@@ -1,0 +1,32 @@
+<!--Componente navegación-->
+
+<div class="container">
+  <h1>Grupo 3</h1>
+
+  <p>Bienvenido al sitio principal, puede encontrar información sobre los catedráticos y los curso de la carrera de
+    Ingeniería
+    en Ciencias y Sistemas, de la <i>Universidad de San Carlos de Guatemala.</i></p>
+
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!--redirigir a la raíz / -->
+      <a class="navbar-brand" routerLink="/">Inicio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/inicioSesion">Iniciar sesión</a>
+          </li>
+          <!--routerLink permite no refrescar la página-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/nuevoUsuario">Registrarse</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

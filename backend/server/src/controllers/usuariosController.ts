@@ -17,16 +17,14 @@ export async function nuevoUsuario(req: Request, res: Response) {
 }
 
 export async function verUsuario(req: Request, res: Response) {
-    const carnet = req.params.carnet;                               //Extraer el paramétro carnet de la ruta
-    
+    const carnet = req.params.carnet;                               //Extraer el paramétro carnet de la ruta o body
     const conn = await connect();
     const usuario = await conn.query('SELECT * FROM usuario WHERE carnet = ?', [carnet]);
-    return res.json(usuario[0]);  
+    return res.json(usuario[0]);
 }
 
 export async function eliminarUsuario(req: Request, res: Response) {
     const carnet = req.params.carnet;                               //Extraer el paramétro carnet de la ruta
-    
     const conn = await connect();
     const usuario = await conn.query('DELETE FROM usuario WHERE carnet = ?', [carnet]);
     return res.json({mensaje: 'Usuario eliminado'});  

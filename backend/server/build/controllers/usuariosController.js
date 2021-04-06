@@ -31,7 +31,7 @@ function nuevoUsuario(req, res) {
 exports.nuevoUsuario = nuevoUsuario;
 function verUsuario(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const carnet = req.params.carnet; //Extraer el paramétro carnet de la ruta
+        const carnet = req.params.carnet; //Extraer el paramétro carnet de la ruta o body
         const conn = yield database_1.connect();
         const usuario = yield conn.query('SELECT * FROM usuario WHERE carnet = ?', [carnet]);
         return res.json(usuario[0]);
