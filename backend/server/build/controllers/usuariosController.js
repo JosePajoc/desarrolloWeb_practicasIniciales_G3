@@ -62,8 +62,13 @@ function buscarUsuario(req, res) {
         const carnet = req.params.carnet; //Extraer el paramétro carnet de la ruta o body
         const contra = req.params.contra;
         const conn = yield database_1.connect();
-        const usuario = yield conn.query('SELECT * FROM usuario WHERE carnet=? AND contra=?', [carnet, contra]);
-        return res.json(usuario[0]);
+        //el primero captura la respuesta y el segundo el bufered de la consulta
+        const [usuario, otro] = yield conn.query('SELECT * FROM usuario WHERE carnet=? AND contra=?', [carnet, contra]);
+        if (usuario.length > 0) {
+            //retorna un arreglo que posee el json
+            return res.json(usuario);
+        }
+        return res.json({ mensaje: 'No existe' });
     });
 }
 exports.buscarUsuario = buscarUsuario;

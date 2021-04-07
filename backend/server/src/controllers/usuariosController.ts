@@ -1,5 +1,6 @@
 import {Request, Response} from 'express';                  //Recibir y responder
 import {connect} from '../routes/database';                        //Usando la conexión creada en database.ts
+import usuariosRoutes from '../routes/usuariosRoutes';
 
 
 export async function verUsuarios(req: Request, res: Response) {
@@ -37,11 +38,15 @@ export async function actualizarUsuario(req: Request, res: Response) {
     const usuario = await conn.query('UPDATE usuario set ? WHERE carnet = ?', [datosNuevos, carnet]);
     return res.json({mensaje: 'Usuario actualizado'});  
 }
-export async function buscarUsuario(req: Request, res: Response) {  //iniciar sesión con carnet y contraseña
+export async function buscarUsuario(req: Request, res: Response)  {  //iniciar sesión con carnet y contraseña
     const carnet = req.params.carnet;                               //Extraer el paramétro carnet de la ruta o body
     const contra = req.params.contra;
     const conn = await connect();
-    const usuario = await conn.query('SELECT * FROM usuario WHERE carnet=? AND contra=?', [carnet, contra]);
-    
-    return res.json(usuario[0]);
+    //el primero captura la respuesta y el segundo el bufered de la consulta
+    const [usuario, otro]: any = await conn.query('SELECT * FROM usuario WHERE carnet=? AND contra=?', [carnet, contra]);
+    if (usuario.length > 0 ){
+        //retorna un arreglo que posee el json
+        return res.json(usuario);
+    }
+    return res.json({mensaje: 'No existe'})
 }

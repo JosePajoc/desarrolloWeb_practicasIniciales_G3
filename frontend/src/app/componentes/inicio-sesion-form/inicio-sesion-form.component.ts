@@ -18,10 +18,16 @@ export class InicioSesionFormComponent implements OnInit {
   usuario: Usuario = {carnet: 0, contra: ''};
 
   constructor(private usuarioServicios: UsuariosService, private router: Router) { }
-  //alert('Bienvenido: ' + res[0].nombre + ' ' + res[0].apellido),
+  //,
   iniciarSesion(){
     this.usuarioServicios.iniciarSesion(this.usuario.carnet, this.usuario.contra).subscribe(
-      (res) => { console.log(res)}, 
+      (res:any) => { if(res.mensaje == 'No existe'){
+            alert('Datos incorrectos')
+        }else{
+          alert('Bienvenido: ' + res[0].nombre + ' ' + res[0].apellido)
+        }
+        
+      }, 
       (err) => {console.log(err)}
     );
   }
