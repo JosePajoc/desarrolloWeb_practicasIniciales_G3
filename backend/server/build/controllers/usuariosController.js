@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.actualizarUsuario = exports.eliminarUsuario = exports.verUsuario = exports.nuevoUsuario = exports.verUsuarios = void 0;
+exports.buscarUsuario = exports.actualizarUsuario = exports.eliminarUsuario = exports.verUsuario = exports.nuevoUsuario = exports.verUsuarios = void 0;
 const database_1 = require("../routes/database"); //Usando la conexión creada en database.ts
 function verUsuarios(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -57,3 +57,13 @@ function actualizarUsuario(req, res) {
     });
 }
 exports.actualizarUsuario = actualizarUsuario;
+function buscarUsuario(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const carnet = req.params.carnet; //Extraer el paramétro carnet de la ruta o body
+        const contra = req.params.contra;
+        const conn = yield database_1.connect();
+        const usuario = yield conn.query('SELECT * FROM usuario WHERE carnet=? AND contra=?', [carnet, contra]);
+        return res.json(usuario[0]);
+    });
+}
+exports.buscarUsuario = buscarUsuario;

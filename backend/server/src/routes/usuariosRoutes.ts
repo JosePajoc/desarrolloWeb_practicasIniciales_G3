@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import {verUsuarios, nuevoUsuario, verUsuario, eliminarUsuario, actualizarUsuario} from '../controllers/usuariosController';
+import {verUsuarios, nuevoUsuario, verUsuario, eliminarUsuario, actualizarUsuario, buscarUsuario} from '../controllers/usuariosController';
 
 class usuarioRoutes{
     public router: Router = Router();               //Variable para guardar objeto de tipo ruta
@@ -12,6 +12,7 @@ class usuarioRoutes{
         this.router
         .get('/',  verUsuarios)
         .get('/:carnet', verUsuario)
+        .get('/:carnet/:contra', buscarUsuario)
         .post('/', nuevoUsuario)
         .delete('/:carnet', eliminarUsuario)
         .put('/:carnet', actualizarUsuario);

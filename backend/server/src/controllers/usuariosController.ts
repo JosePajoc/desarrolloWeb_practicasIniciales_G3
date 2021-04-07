@@ -37,3 +37,11 @@ export async function actualizarUsuario(req: Request, res: Response) {
     const usuario = await conn.query('UPDATE usuario set ? WHERE carnet = ?', [datosNuevos, carnet]);
     return res.json({mensaje: 'Usuario actualizado'});  
 }
+export async function buscarUsuario(req: Request, res: Response) {  //iniciar sesión con carnet y contraseña
+    const carnet = req.params.carnet;                               //Extraer el paramétro carnet de la ruta o body
+    const contra = req.params.contra;
+    const conn = await connect();
+    const usuario = await conn.query('SELECT * FROM usuario WHERE carnet=? AND contra=?', [carnet, contra]);
+    
+    return res.json(usuario[0]);
+}

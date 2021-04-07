@@ -89,3 +89,6 @@ INSERT INTO usuario VALUES ('100', 'Jose', 'Pajoc', '100', 'correo@algo.com');
 INSERT INTO usuario VALUES ('101', 'William', 'apellido W', '101', 'correo101@algo.com');
 INSERT INTO usuario VALUES ('102', 'Carlos', 'apellido C', '102', 'correo102@algo.com');
 select * from usuario;
+
+-- Prueba buscar usuario si coinciden los datos
+select * from usuario where carnet=100 and contra=100;

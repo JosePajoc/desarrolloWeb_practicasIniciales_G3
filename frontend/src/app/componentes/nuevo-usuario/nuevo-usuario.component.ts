@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import {UsuariosService} from '../../servicios/usuarios.service';
 //Importando el modelo de datos para usuarios
 import { Usuario } from 'src/app/modeloDatos/usuarios';
-
+//Utilizar rutas en la acción del método
 import {Router} from '@angular/router';
 
 @Component({

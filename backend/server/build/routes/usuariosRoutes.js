@@ -11,6 +11,7 @@ class usuarioRoutes {
         this.router
             .get('/', usuariosController_1.verUsuarios)
             .get('/:carnet', usuariosController_1.verUsuario)
+            .get('/:carnet/:contra', usuariosController_1.buscarUsuario)
             .post('/', usuariosController_1.nuevoUsuario)
             .delete('/:carnet', usuariosController_1.eliminarUsuario)
             .put('/:carnet', usuariosController_1.actualizarUsuario);

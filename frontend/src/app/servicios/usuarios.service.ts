@@ -18,5 +18,8 @@ export class UsuariosService {
   eliminarUsuario(carnet: number){
     return this.http.delete(`http://localhost:3000/usuarios/${carnet}`);
   }
+  iniciarSesion(carnet: number, contra: String){
+    return this.http.get(`http://localhost:3000/usuarios/${carnet}/${contra}`);
+  }
 
 }
