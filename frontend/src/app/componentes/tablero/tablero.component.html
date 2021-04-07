@@ -1,6 +1,44 @@
-<p>Usuario: {{ nombreUsuario }}</p> 
+Grupo 3: José Pajoc, William Ambrocio, Carlos Toscano, Samuel Pajoc.
+<!--Llamar al componente menú del tablero-->
+<app-menu-tablero></app-menu-tablero>
+
 <br>
-<h3>Publicaciones</h3>
+<!--boorstrap divide en 12 columnas-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
 
-<h4>Prueba para ver usuarios registrados</h4>
+            <h4>Publicaciones realizadas por los usuarios</h4>
+             
+            <!--Nueva publicación-->
+             <div class="card mt-4">
+                <div class="card-body">
+                    <div class="card-title">Escribir nueva publicación</div>
+                    <div class="form-group">
+                        selecciona el curso:
+                        <select>
+                            <option>mate</option><option>IPC</option><option>Física</option>
+                        </select>
+                        <input type="text" placeholder="Escribe tu comentario" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <!--ver lista-->
+            <ul class="list-group">
+                <!--For en angular-->
+                <li 
+                *ngFor="let usuario of usuarios"
+                class="list-group-item list-group-item-action">
+                    Nombre: {{usuario.nombre}} - Carnet: {{usuario.carnet}} - Apellido {{usuario.apellido}}
+                </li>
+            </ul>
 
+        </div>
+        <div class="col-md-2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPf7_q1uBKN7hQkRaNZCC8Gk-IRVUma4UMWg&usqp=CAU"
+                style="border-radius: 20px;" width="120" height="120">
+            <h4>Usuario: {{ nombreUsuario }}</h4>
+        </div>
+    </div>
+
+</div>

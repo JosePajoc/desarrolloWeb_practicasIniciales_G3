@@ -16,6 +16,7 @@ import { from } from 'rxjs';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { RecuperarContraComponent } from './componentes/recuperar-contra/recuperar-contra.component';
 import { TableroComponent } from './componentes/tablero/tablero.component';
+import { MenuTableroComponent } from './componentes/menu-tablero/menu-tablero.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TableroComponent } from './componentes/tablero/tablero.component';
     InicioComponent,
     RecuperarContraComponent,
     TableroComponent,
+    MenuTableroComponent,
   ],
   imports: [
     BrowserModule,
