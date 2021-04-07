@@ -14,7 +14,8 @@ class usuarioRoutes {
             .get('/:carnet/:contra', usuariosController_1.buscarUsuario)
             .post('/', usuariosController_1.nuevoUsuario)
             .delete('/:carnet', usuariosController_1.eliminarUsuario)
-            .put('/:carnet', usuariosController_1.actualizarUsuario);
+            .put('/:carnet', usuariosController_1.actualizarUsuario)
+            .put('/:carnet/:correo/:nuevaContra', usuariosController_1.recuperarContra);
     }
 }
 const UsuarioRoutes = new usuarioRoutes();

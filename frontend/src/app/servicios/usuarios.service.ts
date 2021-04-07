@@ -8,18 +8,21 @@ import {Usuario} from '../modeloDatos/usuarios';
 })
 export class UsuariosService {
   //Crear variable de tipo HTTP en el constructor
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {   }
 
-  }
-  nuevoUsuario(usuario: Usuario){
-    return this.http.post('http://localhost:3000/usuarios', usuario);
-  }
+  nuevoUsuario(usuario: Usuario){ return this.http.post('http://localhost:3000/usuarios', usuario);  }
 
-  eliminarUsuario(carnet: number){
-    return this.http.delete(`http://localhost:3000/usuarios/${carnet}`);
-  }
-  iniciarSesion(carnet: number, contra: String){
+  eliminarUsuario(carnet: number){ return this.http.delete(`http://localhost:3000/usuarios/${carnet}`); }
+  
+  iniciarSesion(carnet: number, contra: String){ 
     return this.http.get(`http://localhost:3000/usuarios/${carnet}/${contra}`);
   }
+
+  recuperarContra(usuario: Usuario){
+    return this.http.put(`http://localhost:3000/usuarios/${usuario.carnet}/${usuario.correo}/${usuario.contra}`, 
+    usuario);
+  }
+
+  verUsuarios(){ return this.http.get('http://localhost:3000/usuarios');  }
 
 }

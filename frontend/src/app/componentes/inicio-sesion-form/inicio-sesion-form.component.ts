@@ -18,18 +18,29 @@ export class InicioSesionFormComponent implements OnInit {
   usuario: Usuario = {carnet: 0, contra: ''};
 
   constructor(private usuarioServicios: UsuariosService, private router: Router) { }
-  //,
+  
   iniciarSesion(){
+    
     this.usuarioServicios.iniciarSesion(this.usuario.carnet, this.usuario.contra).subscribe(
       (res:any) => { if(res.mensaje == 'No existe'){
-            alert('Datos incorrectos')
+            alert('Datos incorrectos');
         }else{
-          alert('Bienvenido: ' + res[0].nombre + ' ' + res[0].apellido)
+          alert('Bienvenido: ' + res[0].nombre + ' ' + res[0].apellido);
+          sessionStorage.setItem('carnet', res[0].carnet);
+          sessionStorage.setItem('usuario', res[0].nombre);
+          this.router.navigate(['tablero']);
         }
         
       }, 
       (err) => {console.log(err)}
     );
+  }
+
+  volverInicio(){
+    this.router.navigate(['/']);
+  }
+  recuperarContra(){
+    this.router.navigate(['recuperarContra']);
   }
 
   ngOnInit(): void {

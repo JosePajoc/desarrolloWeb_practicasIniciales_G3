@@ -1,4 +1,4 @@
-<h3>Ingresa tus datos, para poder acceder</h3>
+<h3>Ingresa tus datos</h3>
 <div class="col-md-4 offset-md-4">
     <div class="card">
         <div class="card-body">
@@ -8,11 +8,14 @@
                     <input type="text" name="carnet" [(ngModel)]="usuario.carnet" class="form-control" autofocus>
                 </div>
                 <div class="form-group">
-                    <p>Contraseña: </p>
+                    <p>Correo electrónico: </p>
+                    <input type="text" name="correo" [(ngModel)]="usuario.correo" class="form-control">
+                </div>
+                <div class="form-group">
+                    <p>Nueva contraseña: </p>
                     <input type="password" name="contra" [(ngModel)]="usuario.contra" class="form-control">
                 </div>
-                <button class="btn btn-success btn-block" (click)="iniciarSesion()">Entrar</button>
-                <button class="btn btn-info btn-block" (click)="recuperarContra()">¿Olvidó su contraseña?</button>
+                <button class="btn btn-info btn-block" (click)="recuperarContra()">Recuperar</button>
                 <button class="btn btn-warning btn-block" (click)="volverInicio()">Volver</button>
             </form>
         </div>

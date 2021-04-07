@@ -13,6 +13,9 @@ import {UsuariosService} from './servicios/usuarios.service';
 //Para enlazar los datos del formulario con el modelo de usuarios
 import {FormsModule} from '@angular/forms';
 import { from } from 'rxjs';
+import { InicioComponent } from './componentes/inicio/inicio.component';
+import { RecuperarContraComponent } from './componentes/recuperar-contra/recuperar-contra.component';
+import { TableroComponent } from './componentes/tablero/tablero.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { from } from 'rxjs';
     NavegacionComponent,
     InicioSesionFormComponent,
     NuevoUsuarioComponent,
+    InicioComponent,
+    RecuperarContraComponent,
+    TableroComponent,
   ],
   imports: [
     BrowserModule,

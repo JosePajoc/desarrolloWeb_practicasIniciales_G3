@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.buscarUsuario = exports.actualizarUsuario = exports.eliminarUsuario = exports.verUsuario = exports.nuevoUsuario = exports.verUsuarios = void 0;
+exports.recuperarContra = exports.buscarUsuario = exports.actualizarUsuario = exports.eliminarUsuario = exports.verUsuario = exports.nuevoUsuario = exports.verUsuarios = void 0;
 const database_1 = require("../routes/database"); //Usando la conexión creada en database.ts
 function verUsuarios(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -72,3 +72,20 @@ function buscarUsuario(req, res) {
     });
 }
 exports.buscarUsuario = buscarUsuario;
+function recuperarContra(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const carnet = req.params.carnet; //Extraer el paramétro carnet de la ruta
+        const correo = req.params.correo;
+        const nuevaContra = req.params.nuevaContra;
+        const conn = yield database_1.connect();
+        //Verificar que el usuario exista
+        const [usuario, otro] = yield conn.query('SELECT * FROM usuario WHERE carnet=? AND correo=?', [carnet, correo]);
+        if (usuario.length > 0) {
+            //Si existe se realizara la actualización y devuelve un estado
+            const usutmp = yield conn.query('UPDATE usuario SET CONTRA = ? WHERE carnet = ? AND correo = ?', [nuevaContra, carnet, correo]);
+            return res.json({ mensaje: 'exito' });
+        }
+        return res.json({ mensaje: 'fallo' });
+    });
+}
+exports.recuperarContra = recuperarContra;

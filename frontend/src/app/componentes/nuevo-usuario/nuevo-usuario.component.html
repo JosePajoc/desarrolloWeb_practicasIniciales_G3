@@ -1,9 +1,9 @@
+<h3>Debes de llenar todos los campos</h3>
 <div class="col-md-4 offset-md-4">
     <div class="card">
         <div class="card-body">
             <form>
                 <div class="form-group">
-                    <p>Debes de llenar todos los campos</p>
                     <p>Carnet: </p>
                     <input type="text" name="carnet" [(ngModel)]="usuario.carnet" class="form-control" autofocus>
                 </div>
@@ -24,6 +24,7 @@
                     <input type="email" name="correo" [(ngModel)]="usuario.correo" class="form-control">
                 </div>
                 <button class="btn btn-success btn-block" (click)="nuevoUsuario()">Registrar</button>
+                <button class="btn btn-warning btn-block" (click)="volverInicio()">Volver</button>
             </form>
         </div>
     </div>

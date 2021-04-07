@@ -25,7 +25,10 @@ export class NuevoUsuarioComponent implements OnInit {
       res => {alert(JSON.stringify(res)); this.router.navigate(['/']), 
       err => console.log(err)}
       );
-
+  }
+  
+  volverInicio(){
+    this.router.navigate(['/']);
   }
 
   ngOnInit(): void {

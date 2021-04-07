@@ -38,6 +38,7 @@ export async function actualizarUsuario(req: Request, res: Response) {
     const usuario = await conn.query('UPDATE usuario set ? WHERE carnet = ?', [datosNuevos, carnet]);
     return res.json({mensaje: 'Usuario actualizado'});  
 }
+
 export async function buscarUsuario(req: Request, res: Response)  {  //iniciar sesión con carnet y contraseña
     const carnet = req.params.carnet;                               //Extraer el paramétro carnet de la ruta o body
     const contra = req.params.contra;
@@ -49,4 +50,20 @@ export async function buscarUsuario(req: Request, res: Response)  {  //iniciar s
         return res.json(usuario);
     }
     return res.json({mensaje: 'No existe'})
+}
+
+export async function recuperarContra(req: Request, res: Response) {
+    const carnet = req.params.carnet;                                //Extraer el paramétro carnet de la ruta
+    const correo = req.params.correo;
+    const nuevaContra = req.params.nuevaContra;                               
+    const conn = await connect();
+    //Verificar que el usuario exista
+    const [usuario, otro]: any = await conn.query('SELECT * FROM usuario WHERE carnet=? AND correo=?', [carnet, correo]);
+    if (usuario.length > 0 ){
+        //Si existe se realizara la actualización y devuelve un estado
+        const usutmp= await conn.query('UPDATE usuario SET CONTRA = ? WHERE carnet = ? AND correo = ?', 
+        [nuevaContra, carnet, correo]);
+        return res.json({mensaje: 'exito'});
+    }
+    return res.json({mensaje: 'fallo'});
 }
