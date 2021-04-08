@@ -65,6 +65,7 @@ fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (carnetusuario) REFERENCES usuario (carnet),
 FOREIGN KEY (idtutor) REFERENCES tutor (idtutor)
 );
+
 -- tabla comentario de un tutor
 CREATE TABLE comentariostutor(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -84,6 +85,7 @@ DESCRIBE publicacionCurso;
 INSERT INTO tutor (nombre, apellido) VALUES ('Luis', 'Paz');
 INSERT INTO tutor (nombre, apellido) VALUES ('Mario', 'Perez');
 INSERT INTO tutor (nombre, apellido) VALUES ('Carlos', 'Gonzales');
+INSERT INTO tutor (nombre, apellido) VALUES ('Tomas', 'Rodriguez');
 select * from tutor;
 INSERT INTO usuario VALUES ('100', 'Jose', 'Pajoc', '100', 'correo@algo.com');
 INSERT INTO usuario VALUES ('101', 'William', 'apellido W', '101', 'correo101@algo.com');
@@ -92,3 +94,30 @@ select * from usuario;
 
 -- Prueba buscar usuario si coinciden los datos
 select * from usuario where carnet=100 and contra=100;
+
+-- Prueba para la tabla publicaciontur
+insert into publicaciontutor (carnetusuario, idtutor, mensaje) 
+values (100, 2, 'Sus clases son muy prácticas');
+insert into publicaciontutor (carnetusuario, idtutor, mensaje) 
+values (101, 2, 'Inicia puntual sus clases');
+insert into publicaciontutor (carnetusuario, idtutor, mensaje) 
+values (101, 1, 'Sus evaluaciones son dificiles');
+insert into publicaciontutor (carnetusuario, idtutor, mensaje) 
+values (103, 3, 'Nunca falta a clase');
+insert into publicaciontutor (carnetusuario, idtutor, mensaje) 
+values (103, 2, 'El ritmo de su clase es muy despacio');
+insert into publicaciontutor (carnetusuario, idtutor, mensaje) 
+values (103, 1, 'Las tareas van según el contenido de la evaluación');
+insert into publicaciontutor (carnetusuario, idtutor, mensaje) 
+values (102, 3, 'Sus tareas son muy extensas');
+insert into publicaciontutor (carnetusuario, idtutor, mensaje) 
+values (103, 4, 'Tiene bastante paciencia para explicar las dudas');
+
+-- Ver publicación por el método de igualación y ordenando primero de la fecha más reciente 
+select usuario.nombre as usuario, tutor.nombre as tutor, publicaciontutor.mensaje, publicaciontutor.fecha
+from usuario, tutor, publicaciontutor
+where (usuario.carnet = publicaciontutor.carnetusuario) and (tutor.idtutor = publicaciontutor.idtutor)
+order by publicaciontutor.fecha desc;
+
+-- Actualizar nombre tutor
+update tutor set nombre='Veronica' where idtutor=3;

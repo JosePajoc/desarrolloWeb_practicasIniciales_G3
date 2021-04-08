@@ -6,6 +6,7 @@ export async function connect(){
         host: 'localhost',
         user: 'root',
         password: '1234567890',
+        dateStrings: true,
         database: 'centralbd'
     });     
     

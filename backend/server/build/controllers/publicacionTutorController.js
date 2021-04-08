@@ -9,18 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.connect = void 0;
-const promise_1 = require("mysql2/promise"); //Para usar promesas con mysql
-function connect() {
+exports.verPublicaciones = void 0;
+const database_1 = require("../routes/database");
+//Ver consulta SQL
+function verPublicaciones(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const conexion = yield promise_1.createPool({
-            host: 'localhost',
-            user: 'root',
-            password: '1234567890',
-            dateStrings: true,
-            database: 'centralbd'
-        });
-        return conexion;
+        const conexion = yield database_1.connect();
+        const publicaciones = yield conexion.query('select usuario.nombre as usuario, tutor.nombre as tutor, publicaciontutor.mensaje, publicaciontutor.fecha from usuario, tutor, publicaciontutor where (usuario.carnet = publicaciontutor.carnetusuario) and (tutor.idtutor = publicaciontutor.idtutor) order by publicaciontutor.fecha desc');
+        return res.json(publicaciones[0]);
     });
 }
-exports.connect = connect;
+exports.verPublicaciones = verPublicaciones;

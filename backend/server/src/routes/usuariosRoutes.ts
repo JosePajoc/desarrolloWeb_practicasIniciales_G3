@@ -19,7 +19,6 @@ class usuarioRoutes{
         .put('/:carnet', actualizarUsuario)
         .put('/:carnet/:correo/:nuevaContra', recuperarContra);
     }
-
 }
 
 const UsuarioRoutes = new usuarioRoutes();

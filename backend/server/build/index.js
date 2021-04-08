@@ -8,6 +8,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const usuariosRoutes_1 = __importDefault(require("./routes/usuariosRoutes"));
+const publicacionTutorRoutes_1 = __importDefault(require("./routes/publicacionTutorRoutes"));
 //Objeto para el servidor
 class server {
     constructor() {
@@ -28,6 +29,7 @@ class server {
     routes() {
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/usuarios', usuariosRoutes_1.default);
+        this.app.use('/verPublicaciones', publicacionTutorRoutes_1.default);
     }
     //Método para iniciar el servidor
     start() {

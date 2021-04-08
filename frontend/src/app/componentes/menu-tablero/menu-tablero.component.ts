@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+//Utilizar rutas en la acción del método
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-menu-tablero',
   templateUrl: './menu-tablero.component.html',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuTableroComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  salir(){
+    alert('Gracias por utilizar la app')
+    this.router.navigate(['/']);
+  }
 }

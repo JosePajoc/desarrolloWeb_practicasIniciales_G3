@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import indexRoutes from './routes/indexRoutes';
 import usuarioRoutes from './routes/usuariosRoutes';
+import PublicacionesRoutes from './routes/publicacionTutorRoutes';
 
 //Objeto para el servidor
 class server{
@@ -28,6 +29,7 @@ class server{
     routes(): void{
         this.app.use('/', indexRoutes);
         this.app.use('/usuarios',usuarioRoutes);
+        this.app.use('/verPublicaciones', PublicacionesRoutes);
     }
     
     //Método para iniciar el servidor
