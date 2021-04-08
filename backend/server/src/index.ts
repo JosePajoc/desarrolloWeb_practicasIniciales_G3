@@ -4,6 +4,7 @@ import cors from 'cors';
 import indexRoutes from './routes/indexRoutes';
 import usuarioRoutes from './routes/usuariosRoutes';
 import PublicacionesRoutes from './routes/publicacionTutorRoutes';
+import CursosRoutesRoutes from './routes/cursosRoutes';
 
 //Objeto para el servidor
 class server{
@@ -30,6 +31,7 @@ class server{
         this.app.use('/', indexRoutes);
         this.app.use('/usuarios',usuarioRoutes);
         this.app.use('/verPublicaciones', PublicacionesRoutes);
+        this.app.use('/verCursos', CursosRoutesRoutes);
     }
     
     //Método para iniciar el servidor

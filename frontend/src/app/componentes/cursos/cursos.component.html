@@ -21,14 +21,14 @@ Grupo 3: José Pajoc, William Ambrocio, Carlos Toscano, Samuel Pajoc.
                     </div>
                 </div>
             </div>
-            <h4>Publicaciones realizadas por los usuarios</h4>
+            <h4>Los cursos de la carrera son</h4>
             <!--ver lista-->
             <ul class="list-group">
                 <!--For en angular-->
                 <li 
-                *ngFor="let publicacion of publicacionesTutor"
+                *ngFor="let curso of cursos"
                 class="list-group-item list-group-item-action">
-                    Publicación realizada por el usuario: {{publicacion.usuario}}<br>catedrático: {{publicacion.tutor}}<br>publicación sobre el catedrático: {{publicacion.mensaje}}, fecha de publicación: {{publicacion.fecha}}
+                    {{curso.nombre}}, semestre: {{curso.semestre}}
                 </li>
             </ul>
 
@@ -36,7 +36,7 @@ Grupo 3: José Pajoc, William Ambrocio, Carlos Toscano, Samuel Pajoc.
         <div class="col-md-2">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPf7_q1uBKN7hQkRaNZCC8Gk-IRVUma4UMWg&usqp=CAU"
                 style="border-radius: 20px;" width="120" height="120">
-            <h4>Usuario: {{ nombreUsuario }}</h4>
+                <h4>Usuario: {{ nombreUsuario }}</h4>
         </div>
     </div>
 

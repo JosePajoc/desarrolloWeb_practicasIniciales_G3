@@ -17,6 +17,7 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { RecuperarContraComponent } from './componentes/recuperar-contra/recuperar-contra.component';
 import { TableroComponent } from './componentes/tablero/tablero.component';
 import { MenuTableroComponent } from './componentes/menu-tablero/menu-tablero.component';
+import { CursosComponent } from './componentes/cursos/cursos.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MenuTableroComponent } from './componentes/menu-tablero/menu-tablero.co
     RecuperarContraComponent,
     TableroComponent,
     MenuTableroComponent,
+    CursosComponent,
   ],
   imports: [
     BrowserModule,

@@ -121,3 +121,18 @@ order by publicaciontutor.fecha desc;
 
 -- Actualizar nombre tutor
 update tutor set nombre='Veronica' where idtutor=3;
+
+-- Cursos
+insert into curso (nombre, semestre) value ('Social humanistica 1', 'Primero');
+insert into curso (nombre, semestre) value ('Matemática básica 1', 'Primero');
+insert into curso (nombre, semestre) value ('Técnica complementaria 1', 'Primero');
+insert into curso (nombre, semestre) value ('Química general 1', 'Primero');
+insert into curso (nombre, semestre) value ('Idioma técnico 1', 'Primero');
+insert into curso (nombre, semestre) value ('Matemática básica 2', 'Segundo');
+insert into curso (nombre, semestre) value ('Social humanistica 2', 'Segundo');
+insert into curso (nombre, semestre) value ('Física básica', 'Segundo');
+insert into curso (nombre, semestre) value ('Mate de computo 1', 'Tercero');
+insert into curso (nombre, semestre) value ('Introducción a la programación y computación 1', 'Tercero');
+insert into curso (nombre, semestre) value ('Práctica inicial', 'Cuarto');
+insert into curso (nombre, semestre) value ('Estadística 1', 'Cuarto');
+
