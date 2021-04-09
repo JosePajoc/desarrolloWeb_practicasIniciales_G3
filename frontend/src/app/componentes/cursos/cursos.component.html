@@ -15,7 +15,7 @@ Grupo 3: José Pajoc, William Ambrocio, Carlos Toscano, Samuel Pajoc.
                     <div class="form-group">
                         selecciona el curso:
                         <select>
-                            <option>mate</option><option>IPC</option><option>Física</option>
+                            <option *ngFor="let curso of cursos">{{curso.nombre}}</option>
                         </select>
                         <input type="text" placeholder="Escribe tu comentario" class="form-control">
                     </div>
@@ -25,9 +25,7 @@ Grupo 3: José Pajoc, William Ambrocio, Carlos Toscano, Samuel Pajoc.
             <!--ver lista-->
             <ul class="list-group">
                 <!--For en angular-->
-                <li 
-                *ngFor="let curso of cursos"
-                class="list-group-item list-group-item-action">
+                <li *ngFor="let curso of cursos" class="list-group-item list-group-item-action">
                     {{curso.nombre}}, semestre: {{curso.semestre}}
                 </li>
             </ul>

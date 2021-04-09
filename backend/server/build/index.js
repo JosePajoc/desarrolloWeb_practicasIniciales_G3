@@ -10,6 +10,7 @@ const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const usuariosRoutes_1 = __importDefault(require("./routes/usuariosRoutes"));
 const publicacionTutorRoutes_1 = __importDefault(require("./routes/publicacionTutorRoutes"));
 const cursosRoutes_1 = __importDefault(require("./routes/cursosRoutes"));
+const publicacionesCursosRouter_1 = __importDefault(require("./routes/publicacionesCursosRouter"));
 //Objeto para el servidor
 class server {
     constructor() {
@@ -32,6 +33,7 @@ class server {
         this.app.use('/usuarios', usuariosRoutes_1.default);
         this.app.use('/verPublicaciones', publicacionTutorRoutes_1.default);
         this.app.use('/verCursos', cursosRoutes_1.default);
+        this.app.use('/verCursosPublicaciones', publicacionesCursosRouter_1.default);
     }
     //Método para iniciar el servidor
     start() {

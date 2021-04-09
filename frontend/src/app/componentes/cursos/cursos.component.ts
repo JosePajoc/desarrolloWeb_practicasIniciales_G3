@@ -11,7 +11,8 @@ export class CursosComponent implements OnInit {
   //Agregar el nombre del usuario al html obtenido de la memoria del navegador
   nombreUsuario = sessionStorage.getItem('usuario');
   //Guarda el arreglo que da como respuesta el backend
-  cursos;
+  cursos: any;
+  
 
   constructor(private cursoServicio: CursosService) { }
 

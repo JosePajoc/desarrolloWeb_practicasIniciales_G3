@@ -134,5 +134,25 @@ insert into curso (nombre, semestre) value ('Física básica', 'Segundo');
 insert into curso (nombre, semestre) value ('Mate de computo 1', 'Tercero');
 insert into curso (nombre, semestre) value ('Introducción a la programación y computación 1', 'Tercero');
 insert into curso (nombre, semestre) value ('Práctica inicial', 'Cuarto');
-insert into curso (nombre, semestre) value ('Estadística 1', 'Cuarto');
+insert into curso (nombre, semestre) value ('Matemática intermedia 1', 'Tercero');
+insert into curso (nombre, semestre) value ('Física 1', 'Tercero');
+insert into curso (nombre, semestre) value ('Lenguajes formales y de programación', 'Cuarto');
+insert into curso (nombre, semestre) value ('Mate de computo 2', 'Cuarto');
+insert into curso (nombre, semestre) value ('Introducción a la programación y computación 2', 'Cuarto');
 
+-- datos de prueba
+insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (100, 10, 'Hay buenos auxiliares en los laboratorios');
+insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (103, 2, 'Mucha tarea para el tiempo que dan');
+insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (102, 7, 'Hay buenos auxiliares en los laboratorios');
+insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (100, 10, 'Hay que buscar buen catedrático porque sino uno se duerme');
+insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (101, 15, 'Las expresiones regulares no las entiendo');
+insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (100, 9, 'La unidad de lógica es aburrida');
+insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (101, 17, 'Sale en vacas :/');
+insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (101, 14, 'Sacada de jugo :(');
+insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (102, 10, 'Con el ingeniero Higo sale');
+
+-- Ver comentarios de cursos por el método de igualación y ordenando primero de la fecha más reciente 
+select usuario.nombre as usuario, curso.nombre as curso, publicacioncurso.mensaje, publicacioncurso.fecha
+from usuario, curso, publicacioncurso
+where (usuario.carnet = publicacioncurso.carnetusuario) and (curso.idcurso = publicacioncurso.idcurso)
+order by publicacioncurso.fecha desc;

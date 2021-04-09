@@ -18,7 +18,5 @@ export class MenuTableroComponent implements OnInit {
     alert('Gracias por utilizar la app')
     this.router.navigate(['/']);
   }
-  verCursos(){
-    this.router.navigate(['/verCursos']);
-  }
+  
 }

@@ -5,33 +5,23 @@ Grupo 3: José Pajoc, William Ambrocio, Carlos Toscano, Samuel Pajoc.
 <br>
 <!--boorstrap divide en 12 columnas-->
 <div class="container">
+    <h4>Publicaciones realizadas por los usuarios</h4>
     <div class="row">
-        <div class="col-md-10">
-  
-            <!--Nueva publicación-->
-             <div class="card mt-4">
-                <div class="card-body">
-                    <div class="card-title">Escribir nueva publicación</div>
-                    <div class="form-group">
-                        selecciona el curso:
-                        <select>
-                            <option>mate</option><option>IPC</option><option>Física</option>
-                        </select>
-                        <input type="text" placeholder="Escribe tu comentario" class="form-control">
-                    </div>
-                </div>
-            </div>
-            <h4>Publicaciones realizadas por los usuarios</h4>
-            <!--ver lista-->
+        <div class="col-md-5">
+            <!--ver lista de publicaciones a catedráticos-->
             <ul class="list-group">
+                Catedráticos
                 <!--For en angular-->
-                <li 
-                *ngFor="let publicacion of publicacionesTutor"
-                class="list-group-item list-group-item-action">
-                    Publicación realizada por el usuario: {{publicacion.usuario}}<br>catedrático: {{publicacion.tutor}}<br>publicación sobre el catedrático: {{publicacion.mensaje}}, fecha de publicación: {{publicacion.fecha}}
+                <li *ngFor="let publicacion of publicacionesTutor" class="list-group-item list-group-item-action">
+                    Publicado por: {{publicacion.usuario}}<br>Catedrático: {{publicacion.tutor}}<br>Comentario: {{publicacion.mensaje}}<br>Fecha de publicación: {{publicacion.fecha}}
                 </li>
             </ul>
-
+        </div>
+        <div class="col-md-5">
+            Cursos
+            <li *ngFor="let curso of publicacionesCursos" class="list-group-item list-group-item-action">
+                Publicado por: {{curso.usuario}}<br>Curso: {{curso.curso}}<br>Comentario: {{curso.mensaje}}<br>Fecha de publicación: {{curso.fecha}}
+            </li>
         </div>
         <div class="col-md-2">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPf7_q1uBKN7hQkRaNZCC8Gk-IRVUma4UMWg&usqp=CAU"
@@ -39,5 +29,4 @@ Grupo 3: José Pajoc, William Ambrocio, Carlos Toscano, Samuel Pajoc.
             <h4>Usuario: {{ nombreUsuario }}</h4>
         </div>
     </div>
-
 </div>
