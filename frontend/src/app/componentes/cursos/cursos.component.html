@@ -13,11 +13,15 @@ Grupo 3: José Pajoc, William Ambrocio, Carlos Toscano, Samuel Pajoc.
                 <div class="card-body">
                     <div class="card-title">Escribir nueva publicación</div>
                     <div class="form-group">
-                        selecciona el curso:
-                        <select>
+                        Curso:
+                        <!--Tomar el valor de la selección-->
+                        <!--Se usa al existir un cambio en la selección (change)="método()"-->
+                        <select [(ngModel)]="cursoSeleccionado" >
+                            <option value="0">--> Seleccionar curso</option>
                             <option *ngFor="let curso of cursos">{{curso.nombre}}</option>
                         </select>
-                        <input type="text" placeholder="Escribe tu comentario" class="form-control">
+                        <input type="text" placeholder="Escribe tu comentario" [(ngModel)]="comentario" class="form-control">
+                        <button class="btn btn-info" (click)="publicarComentarioCurso()">Publicar</button>
                     </div>
                 </div>
             </div>

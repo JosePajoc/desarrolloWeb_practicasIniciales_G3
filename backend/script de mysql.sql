@@ -156,3 +156,6 @@ select usuario.nombre as usuario, curso.nombre as curso, publicacioncurso.mensaj
 from usuario, curso, publicacioncurso
 where (usuario.carnet = publicacioncurso.carnetusuario) and (curso.idcurso = publicacioncurso.idcurso)
 order by publicacioncurso.fecha desc;
+
+-- ver código de curso a través del nombre
+select idcurso from curso where(nombre='Física básica');

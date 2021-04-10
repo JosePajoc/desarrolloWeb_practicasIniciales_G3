@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.verCursos = void 0;
+exports.publicarComentarioCurso = exports.idCurso = exports.verCursos = void 0;
 const database_1 = require("../routes/database");
 //Ver consulta SQL
 function verCursos(req, res) {
@@ -20,3 +20,23 @@ function verCursos(req, res) {
     });
 }
 exports.verCursos = verCursos;
+function idCurso(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const conexion = yield database_1.connect();
+        const nombreCurso = req.params.nombreCurso;
+        const codigoCurso = yield conexion.query('select idcurso from curso where(nombre = ?)', [nombreCurso]);
+        return res.json(codigoCurso[0]);
+    });
+}
+exports.idCurso = idCurso;
+function publicarComentarioCurso(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const conexion = yield database_1.connect();
+        const idCurso = req.params.idCurso;
+        const carnet = req.params.carnet;
+        const mensaje = req.params.mensaje;
+        const publicarComentario = yield conexion.query('insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (?, ?, ?)', [carnet, idCurso, mensaje]);
+        return res.json({ mensaje: 'Publicación realizada' });
+    });
+}
+exports.publicarComentarioCurso = publicarComentarioCurso;

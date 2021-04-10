@@ -1,6 +1,7 @@
 import {Router} from 'express';
 
 import {verCursos} from '../controllers/cursosController';
+import {idCurso, publicarComentarioCurso} from '../controllers/cursosController'
 
 class cursosRoutes{
     public router: Router = Router();
@@ -11,7 +12,9 @@ class cursosRoutes{
 
     configuracion(): void{
         this.router
-            .get('/', verCursos);
+            .get('/', verCursos)
+            .get('/:nombreCurso', idCurso)
+            .post('/:idCurso/:carnet/:mensaje', publicarComentarioCurso);
     }
 }
 const CursosRoutesRoutes = new cursosRoutes();
