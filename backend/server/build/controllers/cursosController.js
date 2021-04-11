@@ -32,9 +32,9 @@ exports.idCurso = idCurso;
 function publicarComentarioCurso(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const conexion = yield database_1.connect();
-        const idCurso = req.params.idCurso;
-        const carnet = req.params.carnet;
-        const mensaje = req.params.mensaje;
+        const idCurso = req.body.idCurso;
+        const carnet = req.body.carnet;
+        const mensaje = req.body.comentario;
         const publicarComentario = yield conexion.query('insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (?, ?, ?)', [carnet, idCurso, mensaje]);
         return res.json({ mensaje: 'Publicación realizada' });
     });

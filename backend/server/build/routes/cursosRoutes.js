@@ -12,7 +12,7 @@ class cursosRoutes {
         this.router
             .get('/', cursosController_1.verCursos)
             .get('/:nombreCurso', cursosController_2.idCurso)
-            .post('/:idCurso/:carnet/:mensaje', cursosController_2.publicarComentarioCurso);
+            .post('/nuevaPublicacion', cursosController_2.publicarComentarioCurso);
     }
 }
 const CursosRoutesRoutes = new cursosRoutes();

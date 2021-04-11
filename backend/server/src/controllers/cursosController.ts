@@ -17,9 +17,9 @@ export async function idCurso(req: Request, res: Response) {
 
 export async function publicarComentarioCurso(req: Request, res: Response) {
     const conexion = await connect();
-    const idCurso = req.params.idCurso;
-    const carnet = req.params.carnet;
-    const mensaje = req.params.mensaje;
+    const idCurso = req.body.idCurso;
+    const carnet = req.body.carnet;
+    const mensaje = req.body.comentario;
     const publicarComentario = await conexion.query('insert into publicacioncurso (carnetusuario, idcurso, mensaje) values (?, ?, ?)', [carnet, idCurso, mensaje]);
     return res.json({mensaje: 'Publicación realizada'});
 }

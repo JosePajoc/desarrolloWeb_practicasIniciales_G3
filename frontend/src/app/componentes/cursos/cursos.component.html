@@ -16,11 +16,11 @@ Grupo 3: José Pajoc, William Ambrocio, Carlos Toscano, Samuel Pajoc.
                         Curso:
                         <!--Tomar el valor de la selección-->
                         <!--Se usa al existir un cambio en la selección (change)="método()"-->
-                        <select [(ngModel)]="cursoSeleccionado" >
+                        <select [(ngModel)]="cursoSeleccionado" (change)="obtenerIdCurso()">
                             <option value="0">--> Seleccionar curso</option>
                             <option *ngFor="let curso of cursos">{{curso.nombre}}</option>
                         </select>
-                        <input type="text" placeholder="Escribe tu comentario" [(ngModel)]="comentario" class="form-control">
+                        <input type="text" placeholder="Escribe tu comentario" [(ngModel)]="PublicacionCurso.comentario" class="form-control">
                         <button class="btn btn-info" (click)="publicarComentarioCurso()">Publicar</button>
                     </div>
                 </div>

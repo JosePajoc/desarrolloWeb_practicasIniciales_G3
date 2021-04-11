@@ -14,7 +14,7 @@ class cursosRoutes{
         this.router
             .get('/', verCursos)
             .get('/:nombreCurso', idCurso)
-            .post('/:idCurso/:carnet/:mensaje', publicarComentarioCurso);
+            .post('/nuevaPublicacion', publicarComentarioCurso);
     }
 }
 const CursosRoutesRoutes = new cursosRoutes();
